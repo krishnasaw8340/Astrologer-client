@@ -7,7 +7,7 @@ import Footer from "./component/Footer/Footer";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./component/Header/Layout";
 import Product from "./component/Product/Product";
-
+import ServiceDetails from "./component/Home/Service/DynamicService/ServiceDetails";
 function App() {
   return (
     <div className="App">
@@ -18,6 +18,7 @@ function App() {
           <Route path="/services" element={<Services/>}/>
           <Route path="/course" element={<Courses/>}/>
           <Route path="/products" element={<Product/>}/>
+          <Route path="/services/:slug" component={ServiceDetails} />
         </Route>
       </Routes>
     </div>

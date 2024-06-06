@@ -1,16 +1,17 @@
 import React from 'react';
 import ShortAbout from './About/ShortAbout';
 import ShortService from './Service/ShortService';
+import Banner from './Banner/Banner';
 const Home = () => {
   return (
     <div>
       <section className="banner bg-cover bg-center h-96 flex items-center justify-center text-black text-4xl font-bold">
-        Welcome to Jivanbodh Jyotish Sansthan.
+        <Banner/>
       </section>
-      <section className="p-8 bg-gray-100">
+      <section className="p-8">
        <ShortAbout/>
       </section>
-      <section className="p-8 bg-white">
+      <section className="p-8 ">
         <ShortService/>
       </section>
       <section className="p-8 bg-gray-100">
