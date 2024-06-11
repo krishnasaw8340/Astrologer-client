@@ -4,6 +4,7 @@ import ShortService from './Service/ShortService';
 import Banner from './Banner/Banner';
 import WhyToChooseUs from './WhyUs/WhyToChooseUs';
 import Testimonials from './Testimonials/Testimonials';
+import Blogs from './Blogs/Blogs';
 
 const Home = () => {
   return (
@@ -24,7 +25,9 @@ const Home = () => {
       </section>
       <section className="p-8">
         <Testimonials/>
-
+      </section>
+      <section>
+        <Blogs/>
       </section>
     </div>
   );

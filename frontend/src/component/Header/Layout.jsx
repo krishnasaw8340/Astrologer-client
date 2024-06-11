@@ -72,7 +72,7 @@ const Layout = () => {
         <Outlet />
       </main>
       <footer className="bg-gray-800 p-4 text-white text-center">
-        &copy; 2024 Your Company
+        &copy; All rights reserved © Designed & Developed by  <a href='https://www.linkedin.com/in/krishna-kumar-saw-9082b9196/' target='_blank'>Krishna</a>
       </footer>
     </div>
   );
