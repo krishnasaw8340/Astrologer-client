@@ -3,7 +3,7 @@ import React from 'react';
 
 const Hamburger = ({ isOpen, toggleMenu }) => {
   return (
-    <div className="md:hidden" onClick={toggleMenu}>
+    <div  className="md:hidden" onClick={toggleMenu}>
       <svg
         className="w-8 h-8 text-gray-800 cursor-pointer"
         fill="none"

@@ -1,8 +1,10 @@
 // src/components/Layout.js
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import Hamburger from './Hamburger';
 import CrossButton from './CrossButton';
+import AOS from 'aos'
+import 'aos/dist/aos.css';
 
 const Layout = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,12 +16,16 @@ const Layout = () => {
   const closeMenu = () => {
     setIsOpen(false);
   };
+  useEffect(()=>{
+    AOS.init();
+  },[])
 
   return (
     <div>
       <nav className="bg-gray-50 p-4 text-gray-800 flex items-center justify-between h-10vh relative shadow-sm rounded-sm">
-        <div className="text-2xl font-bold">Praveer Hathyogi</div>
-        {!isOpen && <Hamburger toggleMenu={toggleMenu} />}
+        <Link to="/"> <div className="text-2xl font-bold">Praveer Hathyogi</div></Link>
+       
+        {!isOpen &&  <Hamburger toggleMenu={toggleMenu} />}
         {isOpen && <CrossButton toggleMenu={toggleMenu} />}
         <div className={`md:flex md:items-center ${isOpen ? 'block' : 'hidden'} w-full md:w-auto`}>
           <Link
@@ -45,11 +51,11 @@ const Layout = () => {
             Courses
           </Link>
           <Link
-            to="/services"
+            to="/contact"
             className="block md:inline-block md:mr-4 mt-4 md:mt-0 text-center font-medium"
             onClick={closeMenu}
           >
-            Services
+            Contact
           </Link>
          
           <Link
