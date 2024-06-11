@@ -17,7 +17,7 @@ const Home = () => {
       <section className="p-8 ">
         <ShortService/>
       </section>
-      <section className="p-8 bg-gray-100">
+      <section className="p-8">
         {/* <h2 className="text-2xl font-bold mb-4">Section 3</h2>
         <p>This is the third section of the home page.</p> */}
         <WhyToChooseUs/>
