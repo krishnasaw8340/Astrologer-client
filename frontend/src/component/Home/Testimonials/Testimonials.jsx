@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
 const Testimonials = () => {
     const testimonials = [
@@ -28,51 +29,48 @@ const Testimonials = () => {
         },
     ];
 
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const slideLeft = () => {
+        var slider = document.getElementById("slider");
+        slider.scrollLeft = slider.scrollLeft - 500;
+    }
 
-    const nextTestimonial = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    };
-
-    const previousTestimonial = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-    };
+    const slideRight = () => {
+        var slider = document.getElementById("slider");
+        slider.scrollLeft = slider.scrollLeft + 500;
+    }
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            nextTestimonial();
+        const autoSlide = setInterval(() => {
+            slideRight();
         }, 3000);
-
-        return () => clearInterval(interval);
+        return () => clearInterval(autoSlide);
     }, []);
 
     return (
-        <div className="container mx-auto px-4 py-8 relative">
+        <>
             <h2 className="text-2xl font-bold text-center mb-8">Satisfied Customers</h2>
-            <div className="flex justify-center items-center">
-                <button
-                    onClick={previousTestimonial}
-                    className="absolute left-0 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-full"
-                >
-                    &lt;
-                </button>
-                <div className="w-full md:w-1/2 p-6 bg-white shadow-lg rounded-lg">
-                    <p className="text-gray-600 mb-4">"{testimonials[currentIndex].comment}"</p>
-                    <div className="text-right">
-                        <p className="text-xl font-semibold">{testimonials[currentIndex].name}</p>
-                        <p className="text-gray-500">{testimonials[currentIndex].address}</p>
-                        <p className="text-gray-400 text-sm">{testimonials[currentIndex].date}</p>
-                    </div>
+            <div className="relative flex items-center w-11/12 h-80 mx-auto">
+                <MdChevronLeft size={40} className="bg-white rounded-full absolute opacity-50 shadow-md cursor-pointer left-0 hover:opacity-100" onClick={slideLeft} />
+                <div id="slider" className="w-full h-full whitespace-nowrap overflow-x-scroll scrollbar-hide scroll-smooth">
+                    {
+                        testimonials.map((testimonial, index) => {
+                            return (
+                                <div className="inline-block w-80 h-72 bg-white rounded-lg mx-2 shadow-md cursor-pointer" key={index}>
+                                    <div className="p-4">
+                                        <p className="font-medium">{testimonial.name}</p>
+                                        <p className="opacity-50 text-sm mb-2">{testimonial.date}</p>
+                                        <p className="text-sm mb-2">{testimonial.comment}</p>
+                                        <p className="text-xs text-gray-500">{testimonial.address}</p>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
-                <button
-                    onClick={nextTestimonial}
-                    className="absolute right-0 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-full"
-                >
-                    &gt;
-                </button>
+                <MdChevronRight size={40} className="bg-white rounded-full absolute opacity-50 shadow-md cursor-pointer right-0 hover:opacity-100" onClick={slideRight} />
             </div>
-        </div>
-    );
-};
+        </>
+    )
+}
 
 export default Testimonials;
