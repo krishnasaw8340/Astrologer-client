@@ -62,7 +62,7 @@ const ShortService = () => {
             title: 'Pooja',
             info: `Perform specific online poojas such as Nav Grah Saanti Pooja, Sani Shanti Pooja, Pitra Dosh, Kaal Sarp Dosh, and more. Seek spiritual remedies and blessings to mitigate planetary influences and bring peace and harmony into your life.`,
             img: 'https://res.cloudinary.com/dighdsaim/image/upload/v1717698146/Services/x15cbw0wfvilr5cirjc8.jpg',
-            link: 'service/pooj',
+            link: 'service/pooja',
         },
     ]
   return (
